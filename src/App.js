@@ -1,7 +1,8 @@
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <div className="App">
       <h1>Secret Word</h1>
     </div>
   );
