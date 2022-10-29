@@ -1,3 +1,5 @@
+/* project global styles*/
+
 html, body {
   height: 100%;
 }
@@ -17,4 +19,21 @@ body {
     rgba(0,212,255,1) 100%
   ); */
   color: #fff;
+}
+
+button {
+  background: #5900ff;
+  color: #fff;
+  padding: 0 45px;
+  border: 2px solid #5900ff;
+  border-radius: 25px;
+  cursor: pointer;
+  height: 50px;
+  font-weight: 600;
+  font-size: 1.2em;
+  transition: .4s;
+}
+
+button:hover {
+  background: #41109cb9;
 }
