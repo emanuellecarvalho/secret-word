@@ -31,7 +31,7 @@ const App = () => {
   const [guesses, setGuesses] = useState(guessesQty);
   const [score, setScore] = useState(0);
 
-  const pickWordAndCategory = () => {
+  const pickWordAndCategory = useCallback(() => {
 
     // pick a random category
     const categories = Object.keys(words);
@@ -44,10 +44,10 @@ const App = () => {
 
     return {word, category};
 
-  };
+  }, [words]);
 
   // start the game 
-  const startGame = () => {
+  const startGame = useCallback(() => {
     // clear all letters
     clearLetterStates();
 
@@ -66,7 +66,7 @@ const App = () => {
 
 
     setGameStage(stages[1].name);
-  };
+  }, [pickWordAndCategory]);
 
   // process the letter input
   const verifyLetter = (letter) => {
