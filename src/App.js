@@ -24,7 +24,7 @@ const App = () => {
   const [pickedCategory, setPickedCategory] = useState('');
   const [letters, setLetters] = useState([]);
 
-  const [guessedLetters, setGessedLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(3);
   const [score, setScore] = useState(0);
@@ -75,8 +75,8 @@ const App = () => {
 
     // push guessed letter or remove a chance
     if (letters.includes(minusculeLetter)) {
-      setGessedLetters((actualGessedLetters) => [
-        ...actualGessedLetters,
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
         letter,
       ]);
     } else {
@@ -84,6 +84,8 @@ const App = () => {
         ...actualWrongLetters,
         minusculeLetter,
       ]);
+
+
     }
     console.log('letter', letter);
   };
