@@ -4,6 +4,8 @@
 
 .points span {
   font-weight: 600;
+  margin-top: 40px;
+  display: inline-block;
 }
 
 .tip span {
