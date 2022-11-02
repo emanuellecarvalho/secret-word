@@ -48,6 +48,8 @@ const App = () => {
 
   // start the game 
   const startGame = () => {
+    // clear all letters
+    clearLetterStates();
 
     // choose word
     const { word, category } = pickWordAndCategory();
@@ -100,7 +102,8 @@ const App = () => {
     setWrongLetters([]);
   }
 
-  // monitor the data
+  // useEffect monitor the data
+  // check if guesses ended
   useEffect(() => {
     if (guesses <= 0) {
       // reset all states
@@ -110,6 +113,22 @@ const App = () => {
     }
   }, [guesses])
   console.log(wrongLetters);
+
+  // check win condition
+  useEffect(() => {
+    // unique letters array with Set and Spread Operator
+    const uniqueLetters = [...new Set(letters)]
+
+    //win condition
+    if(guessedLetters.length === uniqueLetters.length) {
+      // add score
+      setScore((actualScore) => actualScore += 100);
+
+      // restart game with new word
+      startGame();
+    }
+    console.log(uniqueLetters);
+  }, [guessedLetters, letters, startGame])
 
   // restarts the game
   const retry = () => {
