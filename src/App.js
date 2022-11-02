@@ -121,7 +121,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {gameStage === 'start' && <Home  startGame={startGame} /> }
+      {gameStage === 'start' && <Home  startGame={startGame} />}
       {gameStage === 'game' && (
         <Game
           verifyLetter={verifyLetter}
@@ -134,7 +134,7 @@ const App = () => {
           score={score}
         />
       )}
-      {gameStage === 'end' && <GameOver retry={retry} /> }
+      {gameStage === 'end' && <GameOver retry={retry} score={score} />}
     </div>
   );
 };
