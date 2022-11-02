@@ -63,8 +63,32 @@ const App = () => {
 
   // process the letter input
   const verifyLetter = (letter) => {
-    console.log(letter);
+    const minusculeLetter = letter.toLowerCase();
+
+    // check if letter has already been utilized
+    if (
+      guessedLetters.includes(minusculeLetter) ||
+      wrongLetters.includes(minusculeLetter)
+    ) {
+      return;
+    }
+
+    // push guessed letter or remove a chance
+    if (letters.includes(minusculeLetter)) {
+      setGessedLetters((actualGessedLetters) => [
+        ...actualGessedLetters,
+        letter,
+      ]);
+    } else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        minusculeLetter,
+      ]);
+    }
+    console.log('letter', letter);
   };
+
+  console.log(wrongLetters);
 
   // end game
   const retry = () => {
@@ -84,7 +108,7 @@ const App = () => {
           wrongLetters={wrongLetters}
           guesses={guesses}
           score={score}
-          />
+        />
       )}
       {gameStage === 'end' && <GameOver retry={retry} /> }
     </div>
